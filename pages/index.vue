@@ -69,9 +69,9 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get(process.env.ENDPOINT);
-    this.title = data[0].title;
-    this.content = data[0].body;
     return {
+      title: data[0].title,
+      content: data[0].body,
       items: data
     };
   }
