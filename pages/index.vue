@@ -48,9 +48,29 @@ export default {
     Logo,
     VuetifyLogo
   },
+  data() {
+    return {
+      title: "first",
+      content: "first"
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: "description",
+          name: "description",
+          content: this.content
+        }
+      ]
+    };
+  },
   async asyncData() {
     const { data } = await axios.get(process.env.ENDPOINT);
-    // document.title = data[0].title;
+    this.title = data[0].title;
+    this.content = data[0].body;
     return {
       items: data
     };
