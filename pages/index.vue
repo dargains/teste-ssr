@@ -50,7 +50,7 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get(process.env.ENDPOINT);
-    document.title = data[0].title;
+    // document.title = data[0].title;
     return {
       items: data
     };
