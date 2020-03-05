@@ -49,9 +49,7 @@ export default {
     VuetifyLogo
   },
   async asyncData() {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
+    const { data } = await axios.get(process.env.ENDPOINT);
     return {
       items: data
     };
